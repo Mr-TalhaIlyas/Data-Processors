@@ -75,28 +75,17 @@ ids2assign_c = []
 ids2assign_w = []
 
 for i,j in zip(inds_c, inds_w):
-    
     img_c = img_reader(path2_images_c[i])
     img_c = img_c.resize((w, h), PIL.Image.BILINEAR)
     img_c = np.array(img_c)
-    
-    img_w = img_reader(path2_images_w[j])
-    img_w = img_w.resize((w, h), PIL.Image.BILINEAR)
-    img_w = np.array(img_w)
     
     mask_c = cv2.imread(path2_masks_c[i], 1)
     mask_c = cv2.resize(mask_c, (w, h), interpolation = cv2.INTER_NEAREST) # masks
     ids2assign_c.append(get_sem_id(class_names, path2_masks_c[i]))
     
-    mask_w = cv2.imread(path2_masks_w[j], 1)
-    mask_w = cv2.resize(mask_w, (w, h), interpolation = cv2.INTER_NEAREST) # masks
-    ids2assign_w.append(get_sem_id(class_names, path2_masks_w[j]))
-    
     batch_imgs_c.append(img_c)
-    batch_imgs_w.append(img_w)
-    
     batch_masks_c.append(mask_c)
-    batch_masks_w.append(mask_w)
+    
    
 # first augmenting
 _aug = augmentation_pipeline()
