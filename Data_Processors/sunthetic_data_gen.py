@@ -86,6 +86,17 @@ for i,j in zip(inds_c, inds_w):
     batch_imgs_c.append(img_c)
     batch_masks_c.append(mask_c)
     
+for j in inds_w:
+    img_w = img_reader(path2_images_w[j])
+    img_w = img_w.resize((w, h), PIL.Image.BILINEAR)
+    img_w = np.array(img_w)
+    
+    mask_w = cv2.imread(path2_masks_w[j], 1)
+    mask_w = cv2.resize(mask_w, (w, h), interpolation = cv2.INTER_NEAREST) # masks
+    ids2assign_w.append(get_sem_id(class_names, path2_masks_w[j]))
+    
+    batch_imgs_w.append(img_w)
+    batch_masks_w.append(mask_w)    
    
 # first augmenting
 _aug = augmentation_pipeline()
