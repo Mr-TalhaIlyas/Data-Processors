@@ -74,7 +74,7 @@ batch_masks_w = []
 ids2assign_c = []
 ids2assign_w = []
 
-for i,j in zip(inds_c, inds_w):
+for i in inds_c:
     img_c = img_reader(path2_images_c[i])
     img_c = img_c.resize((w, h), PIL.Image.BILINEAR)
     img_c = np.array(img_c)
