@@ -60,7 +60,7 @@ def cv2_thresh_seg(image, thresh_color_rgb, apply_morph = True):
 
 thresh_color_rgb = np.uint8([[[0,255,0]]]) # Order is [R, G, B] as we want to extract to green color
 
-image = cv2.imread('C:/Users/talha/OneDrive/Desktop/New folder/20210906_talha_bean_artificial_45_655870.JPG')  
+image = cv2.imread('../artificial_45_655870.JPG')  
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB) # change channel order
 
 
