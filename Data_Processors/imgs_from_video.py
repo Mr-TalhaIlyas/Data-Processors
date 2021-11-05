@@ -13,7 +13,9 @@ import numpy as np
 
 vid = cv2.VideoCapture('C:/Users/talha/OneDrive/Desktop/Screen Recording (11-5-2021 9-57-09 AM).wmv')
 
-
+# As a video might contain 1000's of frames and consecutive frames don't differ much so just store a 
+# frame as an image after with a certain gap. In this case after saving a frame the next frame will be
+# saved after 'cycle' frames and so on.
 cycle = 4500
 
 i = 0 
