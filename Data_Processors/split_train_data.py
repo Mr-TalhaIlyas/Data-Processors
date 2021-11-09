@@ -51,7 +51,7 @@ sub_dir = ['train', 'test', 'val']
 for i in range(len(sub_dir)):
     im_path = os.path.join(op_dir, sub_dir[i] + '/images/')
     ms_path = os.path.join(op_dir, sub_dir[i] + '/masks/')
-    for j,k in tqdm(zip(img_data[i],label_data[i]), desc='Creating {sub_dir[i]} set', total=len(img_data[i])):
+    for j,k in tqdm(zip(img_data[i],label_data[i]), desc=f'Creating {sub_dir[i]} set', total=len(img_data[i])):
         shutil.copy2(j, im_path)
         shutil.copy2(k, ms_path)
         
